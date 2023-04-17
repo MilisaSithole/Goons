@@ -1,0 +1,31 @@
+import React, { useState } from 'react';
+
+const ReviewSection = () => {
+    // Initialize state for reviews data
+    const [reviews, setReviews] = useState([
+        { id: 1, username: 'User1', rating: 5, comment: 'Great product!' },
+        { id: 2, username: 'User2', rating: 4, comment: 'Good product, but could be better.' },
+        { id: 3, username: 'User3', rating: 3, comment: 'Average product.' },
+    ]);
+
+    return (
+        <div className="review-container">
+            <h2>Reviews</h2>
+            <ul className="review-list">
+                {reviews.length > 0 ? (
+                    reviews.map((review) => (
+                        <li key={review.id} className="review-item">
+                            <h3>{review.username}</h3>
+                            <p>Rating: {review.rating}</p>
+                            <p>Comment: {review.comment}</p>
+                        </li>
+                    ))
+                ) : (
+                    <li className="review-item">No reviews available.</li>
+                )}
+            </ul>
+        </div>
+    );
+};
+
+export default ReviewSection;
